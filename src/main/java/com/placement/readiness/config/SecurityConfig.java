@@ -46,12 +46,11 @@ public class SecurityConfig {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
-
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowedOrigins(List.of(
-                "http://localhost:5173",                       // local dev
-                "https://placement-readiness-vercel.app"       // Vercel PROD
+                "http://localhost:5173",
+                "https://placement-readiness.vercel.app"
         ));
 
         config.setAllowedMethods(List.of(
@@ -63,8 +62,8 @@ public class SecurityConfig {
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
-
         source.registerCorsConfiguration("/**", config);
         return source;
     }
+
 }
